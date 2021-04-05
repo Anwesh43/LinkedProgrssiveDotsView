@@ -42,7 +42,7 @@ fun Canvas.drawProgressiveDots(w : Float, h : Float, scale : Float, paint : Pain
     drawRect(RectF(-size * sf1, -2 * r * sf1, size * sf1, 2 * r * sf1), paint)
     for (j in 1..balls) {
         save()
-        translate(-size + 2 * (j + 1) * r, -2 * r)
+        translate(-size + 2 * (j + 1) * r, 0f)
         drawCircle(0f, 0f, r * sf.divideScale(j, parts), paint)
         restore()
     }
