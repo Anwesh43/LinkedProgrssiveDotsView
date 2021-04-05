@@ -35,16 +35,19 @@ fun Canvas.drawProgressiveDots(w : Float, h : Float, scale : Float, paint : Pain
     val size : Float = Math.min(w, h) / wFactor
     val sf : Float = scale.sinify()
     val sf1 : Float = sf.divideScale(0, parts)
-    val r : Float = size / (3 * balls + 1)
+    val r : Float = (2 * size) / (3 * balls + 1)
     save()
     translate(w / 2, h / 2)
     paint.style = Paint.Style.STROKE
     drawRect(RectF(-size * sf1, -2 * r * sf1, size * sf1, 2 * r * sf1), paint)
+    paint.style = Paint.Style.FILL
+    var x : Float = 2 * r
     for (j in 1..balls) {
         save()
-        translate(-size + 2 * (j + 1) * r, 0f)
+        translate(-size + x, 0f)
         drawCircle(0f, 0f, r * sf.divideScale(j, parts), paint)
         restore()
+        x += 3 * r
     }
     restore()
 }
