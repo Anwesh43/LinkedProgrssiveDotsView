@@ -209,4 +209,13 @@ class ProgressiveDotsView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : ProgressiveDotsView {
+            val view : ProgressiveDotsView = ProgressiveDotsView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
